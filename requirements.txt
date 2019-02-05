@@ -1,0 +1,6 @@
+lxml
+boto3
+coloredlogs
+requests
+datetime
+feedgen
