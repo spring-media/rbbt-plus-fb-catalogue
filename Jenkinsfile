@@ -1,4 +1,4 @@
-String cron_string = BRANCH_NAME == "master" ? "H/30 * * * *" : ""
+String cron_string = BRANCH_NAME == "master" ? "H H/2 * * *" : ""
 
 pipeline {
     triggers {
@@ -13,7 +13,7 @@ pipeline {
     agent {
         docker {
             reuseNode true
-            image 'python:3.7.2-onbuild'
+            image 'python:2.7.15-onbuild'
         }
     }
 
@@ -23,8 +23,8 @@ pipeline {
                 script {
                     sh '''
                     virtualenv venv --distribute
-                    . venv/bin/activate && pip3 install -r requirements.txt >/dev/null 2>&1
-                    python3 main.py
+                    . venv/bin/activate && pip2 install -r requirements.txt >/dev/null 2>&1
+                    python2.7 main.py
                     '''
                 }
             }
