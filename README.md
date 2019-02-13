@@ -6,8 +6,8 @@ Plus Facebook Catalogue
 
 # Description
 This project generates the RSS feed containing the WELT's
-plus articles. They can be accessed on this URL: `https://static.up.welt.de/plus-catalogue/premium_<image_width>.
-rss`.
+plus articles. They can be accessed on this URL: `https://static.up.welt.de/plus-catalogue/premium_<image_width>.rss`.
+Possible image widths are `1_1` and `16_9`.
 
 # Requirements
 * Python
