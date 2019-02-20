@@ -2,6 +2,8 @@ lxml
 boto3
 virtualenv
 coloredlogs
+graphqlclient
+ConfigParser
 requests
 datetime
 feedgen

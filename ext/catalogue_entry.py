@@ -6,66 +6,71 @@ class CatalogueEntryExtension(BaseEntryExtension):
 
     def __init__(self):
         self.__id = None
-        self.__price = None
         self.__brand = None
         self.__condition = None
-        self.__availability = None
         self.__custom_label_0 = None
         self.__custom_label_1 = None
+        self.__custom_label_2 = None
+        self.__custom_label_3 = None
         self.__google_product_category = None
+        self.__premium_paragraph = None
+        self.__availability_date = None
         self.__image_link = None
+        self.__additional_image_link = None
         self.__product_type = None
 
     def extend_rss(self, feed):
-        GOOGLE_NS = 'http://base.google.com/ns/1.0'
+        google_ns = 'http://base.google.com/ns/1.0'
 
         if self.__id:
-            price = etree.SubElement(feed, '{%s}id' % GOOGLE_NS)
-            price.text = self.__id
-
-        if self.__price:
-            price = etree.SubElement(feed, '{%s}price' % GOOGLE_NS)
-            price.text = self.__price
+            id = etree.SubElement(feed, '{%s}id' % google_ns)
+            id.text = self.__id
 
         if self.__brand:
-            brand = etree.SubElement(feed, '{%s}brand' % GOOGLE_NS)
+            brand = etree.SubElement(feed, '{%s}brand' % google_ns)
             brand.text = self.__brand
 
+        if self.__availability_date:
+            availability_date = etree.SubElement(feed, '{%s}availability_date' % google_ns)
+            availability_date.text = self.__availability_date
+
         if self.__condition:
-            condition = etree.SubElement(feed, '{%s}condition' % GOOGLE_NS)
+            condition = etree.SubElement(feed, '{%s}condition' % google_ns)
             condition.text = self.__condition
 
-        if self.__availability:
-            availability = etree.SubElement(feed, '{%s}availability' % GOOGLE_NS)
-            availability.text = self.__availability
-
         if self.__custom_label_0:
-            custom_label_0 = etree.SubElement(feed, '{%s}custom_label_0' % GOOGLE_NS)
+            custom_label_0 = etree.SubElement(feed, '{%s}custom_label_0' % google_ns)
             custom_label_0.text = self.__custom_label_0
 
         if self.__custom_label_1:
-            custom_label_1 = etree.SubElement(feed, '{%s}custom_label_1' % GOOGLE_NS)
+            custom_label_1 = etree.SubElement(feed, '{%s}custom_label_1' % google_ns)
             custom_label_1.text = self.__custom_label_1
 
+        if self.__custom_label_2:
+            custom_label_2 = etree.SubElement(feed, '{%s}custom_label_2' % google_ns)
+            custom_label_2.text = self.__custom_label_2
+
+        if self.__custom_label_3:
+            custom_label_3 = etree.SubElement(feed, '{%s}custom_label_3' % google_ns)
+            custom_label_3.text = self.__custom_label_3
+
         if self.__image_link:
-            image_link = etree.SubElement(feed, '{%s}image_link' % GOOGLE_NS)
+            image_link = etree.SubElement(feed, '{%s}image_link' % google_ns)
             image_link.text = self.__image_link
 
+        if self.__additional_image_link:
+            additional_image_link = etree.SubElement(feed, '{%s}additional_image_link' % google_ns)
+            additional_image_link.text = self.__additional_image_link
+
         if self.__google_product_category:
-            __google_product_category = etree.SubElement(feed, '{%s}google_product_category' % GOOGLE_NS)
+            __google_product_category = etree.SubElement(feed, '{%s}google_product_category' % google_ns)
             __google_product_category.text = self.__google_product_category
 
         if self.__product_type:
-            __product_type = etree.SubElement(feed, '{%s}product_type' % GOOGLE_NS)
+            __product_type = etree.SubElement(feed, '{%s}product_type' % google_ns)
             __product_type.text = self.__product_type
 
         return feed
-
-    def price(self, price=None):
-        if price is not None:
-            self.__price = price
-
-        return self.__price
 
     def brand(self, brand=None):
         if brand is not None:
@@ -73,20 +78,17 @@ class CatalogueEntryExtension(BaseEntryExtension):
 
         return self.__brand
 
-    def condition(self, condition=None):
+    def availability_date(self, availability_date=None):
+        if availability_date is not None:
+            self.__availability_date = availability_date
 
+            return self.__availability_date
+
+    def condition(self, condition=None):
         if condition is not None:
             self.__condition = condition
 
         return self.__condition
-
-    def availability(self, availability=None):
-
-        if availability is not None:
-            self.__availability = availability
-
-        return self.__availability
-
 
     def custom_label_0(self, custom_label_0=None):
         if custom_label_0 is not None:
@@ -100,11 +102,29 @@ class CatalogueEntryExtension(BaseEntryExtension):
 
         return self.__custom_label_1
 
+    def custom_label_2(self, custom_label_2=None):
+        if custom_label_2 is not None:
+            self.__custom_label_2 = custom_label_2
+
+        return self.__custom_label_2
+
+    def custom_label_3(self, custom_label_3=None):
+        if custom_label_3 is not None:
+            self.__custom_label_3 = custom_label_3
+
+        return self.__custom_label_3
+
     def image_link(self, image_link=None):
         if image_link is not None:
             self.__image_link = image_link
 
         return self.__image_link
+
+    def additional_image_link(self, additional_image_link=None):
+        if additional_image_link is not None:
+            self.__additional_image_link = additional_image_link
+
+        return self.__additional_image_link
 
     def google_product_category(self, google_product_category=None):
         if google_product_category is not None:
@@ -123,4 +143,3 @@ class CatalogueEntryExtension(BaseEntryExtension):
             self.__id = id
 
         return self.__id
-

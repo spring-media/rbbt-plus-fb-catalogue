@@ -1,5 +1,6 @@
 from feedgen.ext.base import BaseExtension
 
+
 class CatalogueExtension(BaseExtension):
 
     def extend_ns(self):
