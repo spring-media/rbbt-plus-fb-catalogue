@@ -40,4 +40,4 @@ class WeltGraphQLClient:
         client = GraphQLClient(self.endpoint)
         client.inject_token(self.api_key, 'X-Api-Key')
 
-        return client.execute(query % (page, page_size))
+        return client.execute(query % (page_size, page))
