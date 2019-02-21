@@ -12,6 +12,7 @@ class CatalogueEntryExtension(BaseEntryExtension):
         self.__custom_label_1 = None
         self.__custom_label_2 = None
         self.__custom_label_3 = None
+        self.__custom_label_4 = None
         self.__google_product_category = None
         self.__premium_paragraph = None
         self.__availability_date = None
@@ -53,6 +54,10 @@ class CatalogueEntryExtension(BaseEntryExtension):
         if self.__custom_label_3:
             custom_label_3 = etree.SubElement(feed, '{%s}custom_label_3' % google_ns)
             custom_label_3.text = self.__custom_label_3
+
+        if self.__custom_label_4:
+            custom_label_4 = etree.SubElement(feed, '{%s}custom_label_4' % google_ns)
+            custom_label_4.text = self.__custom_label_4
 
         if self.__image_link:
             image_link = etree.SubElement(feed, '{%s}image_link' % google_ns)
@@ -111,6 +116,12 @@ class CatalogueEntryExtension(BaseEntryExtension):
     def custom_label_3(self, custom_label_3=None):
         if custom_label_3 is not None:
             self.__custom_label_3 = custom_label_3
+
+        return self.__custom_label_3
+
+    def custom_label_4(self, custom_label_4=None):
+        if custom_label_4 is not None:
+            self.__custom_label_4 = custom_label_4
 
         return self.__custom_label_3
 

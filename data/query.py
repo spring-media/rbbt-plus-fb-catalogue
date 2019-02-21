@@ -25,6 +25,9 @@ class WeltGraphQLClient:
                     imageUrl_1x1: url(ratio: 1, size: 1200)
                     imageUrl_16x9: url(ratio: 1.777, size: 1200)
                   }
+                  tags {
+                    label
+                  }
                   seoTitle
                   intro
                   readingTimeMinutes

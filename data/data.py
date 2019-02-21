@@ -30,6 +30,12 @@ def strip_tags(text):
     return tag_re.sub('', text)
 
 
+def format_tags(tags):
+    labels = map(lambda tag: tag['label'] if tag['label'] else '', tags)
+
+    return ", ".join(list(labels))
+
+
 def retrieve_image_url(result, image_width):
     default_fallback_image = 'https://www.welt.de/img/masters/mobile160492822/7651629427-ci16x19-wWIDTH/welt-fallback-jpg.jpg'
 
@@ -56,6 +62,7 @@ class FeedContentWrapper:
         self.web_url = result['webUrl']
         self.intro = result['intro']
         self.topic = result['topic']
+        self.tags = format_tags(result['tags'])
         self.reading_time = result['readingTimeMinutes']
         self.premium_paragraph = strip_tags(result['premiumParagraph'])
         self.image_url_1_1 = result['images'][0]['imageUrl_1x1'] if result[

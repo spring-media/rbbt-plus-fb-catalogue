@@ -25,6 +25,7 @@ def generate_feed(results, generator):
 
     for result in results:
         content = FeedContentWrapper(result)
+
         content.add_premium_logo_to_image_url()
         feed_item = generator.add_entry(order='append')
         feed_item.id(content.id)
@@ -45,6 +46,7 @@ def generate_feed(results, generator):
         feed_item.catalogue.custom_label_1(content.headline)
         feed_item.catalogue.custom_label_2(str(content.reading_time))
         feed_item.catalogue.custom_label_3(content.age)
+        feed_item.catalogue.custom_label_4(content.tags)
 
 
 def build_feed_generator():
